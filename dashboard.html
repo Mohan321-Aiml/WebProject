@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Industrial Monitoring Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 min-h-screen text-white font-sans">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-gray-800 bg-opacity-80 backdrop-blur-md border-b border-gray-700 p-4 flex justify-between items-center fixed top-0 w-full z-10">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-xl font-bold text-blue-400">AI Smart Industrial Monitoring Dashboard</h1>
+            <div class="text-sm text-gray-300" id="currentDateTime"></div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <i class="fas fa-user-circle text-2xl text-gray-400 cursor-pointer hover:text-blue-400 transition-colors"></i>
+            <i class="fas fa-bell text-2xl text-gray-400 cursor-pointer hover:text-blue-400 transition-colors" id="notificationBell"></i>
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-sm text-green-400">System Online</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-brain text-blue-400"></i>
+                <span class="text-sm text-blue-400">AI Engine Active</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex pt-16">
+        <!-- Sidebar Menu -->
+        <aside class="w-64 bg-gray-800 bg-opacity-80 backdrop-blur-md h-screen fixed left-0 top-16 border-r border-gray-700">
+            <ul class="p-4 space-y-2">
+                <li><a href="dashboard.html" class="sidebar-item block p-3 rounded-lg bg-blue-600 text-white active"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a></li>
+                <li><a href="live-monitoring.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-eye mr-2"></i>Live Monitoring</a></li>
+                <li><a href="ai-predictions.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-brain mr-2"></i>AI Predictions</a></li>
+                <li><a href="alerts.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-exclamation-triangle mr-2"></i>Alerts</a></li>
+                <li><a href="machine-health.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-heartbeat mr-2"></i>Machine Health</a></li>
+                <li><a href="analytics.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-chart-line mr-2"></i>Analytics</a></li>
+                <li><a href="maintenance.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-tools mr-2"></i>Maintenance</a></li>
+                <li><a href="settings.html" class="sidebar-item block p-3 rounded-lg hover:bg-gray-700 cursor-pointer"><i class="fas fa-cog mr-2"></i>Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 p-8 w-full">
+            <div class="max-w-6xl mx-auto space-y-8">
+                <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <h2 class="text-4xl font-bold text-blue-400">Dashboard</h2>
+                        <p class="text-slate-300 mt-2">A single-scroll overview of your system health, sensors, and active alerts.</p>
+                    </div>
+                    <div class="text-sm text-slate-400">Updated live · <span id="currentDateTime"></span></div>
+                </div>
+
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700 shadow-xl hover:shadow-blue-500/20 transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-slate-100 mb-3">Total Machines</h3>
+                        <div class="text-4xl font-bold text-white mb-2">24</div>
+                        <div class="text-sm text-slate-400">All systems are running smoothly.</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700 shadow-xl hover:shadow-yellow-500/20 transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-slate-100 mb-3">Active Alerts</h3>
+                        <div class="text-4xl font-bold text-red-400 mb-2">3</div>
+                        <div class="text-sm text-slate-400">Critical and warning alerts need attention.</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700 shadow-xl hover:shadow-purple-500/20 transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-slate-100 mb-3">AI Confidence</h3>
+                        <div class="text-4xl font-bold text-purple-400 mb-2">92%</div>
+                        <div class="text-sm text-slate-400">Predictive maintenance recommendations are stable.</div>
+                    </div>
+                </section>
+
+                <section class="glass-card p-6 rounded-3xl border border-slate-700 shadow-xl">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white">Active Alerts</h3>
+                            <p class="text-slate-400 mt-1">Prioritized, easy-to-scan alert details in one view.</p>
+                        </div>
+                        <div class="rounded-full bg-red-900 px-4 py-2 text-sm text-red-200">3 Active Alerts</div>
+                    </div>
+                    <div class="space-y-4 mt-5" id="alertsPanel"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 bg-opacity-80 backdrop-blur-md border-t border-gray-700 p-4 text-center text-sm">
+        <div class="flex justify-center space-x-8">
+            <span><i class="fas fa-code-branch mr-1"></i>System Version: 2.1.4</span>
+            <span><i class="fas fa-wifi mr-1 text-green-400"></i>IoT Connected</span>
+            <span><i class="fas fa-brain mr-1 text-blue-400"></i>AI Engine Running</span>
+            <span><i class="fas fa-database mr-1 text-purple-400"></i>Database Connected</span>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
