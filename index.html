@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Portal - AI Smart Industrial Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 min-h-screen flex items-center justify-center">
+    <div class="login-card max-w-md w-full p-8 rounded-3xl border border-white/10 shadow-2xl bg-slate-900 bg-opacity-80 backdrop-blur-xl">
+        <div class="mb-8 text-center">
+            <h1 id="authTitle" class="text-3xl font-bold text-white mb-2">Welcome Back</h1>
+            <p id="authSubtitle" class="text-slate-300">Sign in to access the AI Smart Industrial Monitoring Dashboard.</p>
+        </div>
+
+        <div class="mb-6 grid grid-cols-2 rounded-2xl bg-slate-950/70 p-1" role="tablist" aria-label="Authentication options">
+            <button type="button" class="auth-tab rounded-xl px-4 py-2 text-sm font-semibold transition" data-mode="signin" role="tab" aria-selected="true">Sign In</button>
+            <button type="button" class="auth-tab rounded-xl px-4 py-2 text-sm font-semibold transition" data-mode="signup" role="tab" aria-selected="false">Sign Up</button>
+        </div>
+
+        <form id="authForm" class="space-y-5" novalidate>
+            <div id="nameField" class="hidden">
+                <label for="fullName" class="block text-sm font-medium text-slate-200 mb-2">Full name</label>
+                <input id="fullName" type="text" autocomplete="name" placeholder="Enter your full name" class="w-full p-3 rounded-2xl border border-slate-700 bg-slate-950 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <div>
+                <label for="username" class="block text-sm font-medium text-slate-200 mb-2">Username</label>
+                <input id="username" type="text" autocomplete="username" placeholder="Choose a username" class="w-full p-3 rounded-2xl border border-slate-700 bg-slate-950 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-slate-200 mb-2">Password</label>
+                <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" class="w-full p-3 rounded-2xl border border-slate-700 bg-slate-950 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <div id="confirmPasswordField" class="hidden">
+                <label for="confirmPassword" class="block text-sm font-medium text-slate-200 mb-2">Confirm password</label>
+                <input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter your password" class="w-full p-3 rounded-2xl border border-slate-700 bg-slate-950 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <div id="authMessage" class="min-h-[1.5rem] text-sm" role="alert" aria-live="polite"></div>
+            <button id="authSubmit" type="submit" class="w-full py-3 rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-500 transition">Sign In</button>
+        </form>
+
+        <div id="demoCredentials" class="mt-6 text-center text-sm text-slate-400">
+            Demo: <span class="text-white font-semibold">admin</span> / <span class="text-white font-semibold">admin123</span>
+        </div>
+        <div class="mt-4 text-center text-slate-500 text-xs">
+            Need help? Contact your system administrator.
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

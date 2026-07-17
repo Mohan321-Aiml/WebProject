@@ -1,0 +1,10 @@
+[
+  {
+    "id": "85540505-3afd-4cc6-8bee-a9c799ca3b4a",
+    "fullName": "System Administrator",
+    "username": "admin",
+    "salt": "174157f761b1027495241790584f31f2",
+    "passwordHash": "d6e0581ad8079f46a520111cf30daa42f554bc4574cfcc34ca715028e9a996df3c1bea405395c222d51164123f57333e52d1c2f6f7713a0315c2ce60dbb016ab",
+    "createdAt": "2026-07-17T08:41:24.671Z"
+  }
+]
